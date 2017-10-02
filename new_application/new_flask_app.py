@@ -16,5 +16,10 @@ def judgement():
 	fave_food = request.args.get("treat")
 	return render_template("judgement.html", treat = fave_food)
 
+@app.errorhandler(404)
+def missing_resource(e):
+	return render_template('404page.html', error=e)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
